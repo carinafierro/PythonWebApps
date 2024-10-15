@@ -29,3 +29,13 @@ def get_context_data(self, **kwargs):
             'id': 'Clark Kent',
             'image': '/static/images/superman.jpg'
         }
+
+class HeroListView(TemplateView):
+    template_name = 'heroes.html'
+    
+def get_context_data(self, **kwargs):
+        return {
+            'title': 'Superman',
+            'id': 'Clark Kent',
+            'image': '/static/images/superman.jpg'
+        }
