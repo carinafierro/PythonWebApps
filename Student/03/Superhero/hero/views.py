@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-class BatmanView(TemplateView):
+class HeroDetailView(TemplateView):
     template_name = 'hero1.html'
 
 def get_context_data(self, **kwargs):
@@ -10,7 +10,7 @@ def get_context_data(self, **kwargs):
             'image': '/static/images/batman.jpg'
         }
 
-class WonderWomanView(TemplateView):
+class HeroDetailView(TemplateView):
     template_name = 'hero2.html'
     
 def get_context_data(self, **kwargs):
@@ -20,7 +20,7 @@ def get_context_data(self, **kwargs):
             'image': '/static/images/wonder_woman.jpg'
         }
 
-class SupermanView(TemplateView):
+class HeroDetailView(TemplateView):
     template_name = 'hero3.html'
     
 def get_context_data(self, **kwargs):
@@ -35,7 +35,7 @@ class HeroListView(TemplateView):
     
 def get_context_data(self, **kwargs):
         return {
+            'title': 'Batman',
+            'title': 'Wonder Woman',
             'title': 'Superman',
-            'id': 'Clark Kent',
-            'image': '/static/images/superman.jpg'
         }
