@@ -1,0 +1,18 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+{% for hero in hero %}
+
+<img src="{{ hero }}" alt="{{ hero }}" width="200">
+{{ hero }}
+
+<!--<a href="/hero/{{ hero }}">
+    <img class="hero" src="/{{ hero }}" alt="Chapter {{ hero }}" width="200">
+</a>-->
+
+{% endfor %}
+
+{% endblock content %}
