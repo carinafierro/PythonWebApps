@@ -14,6 +14,6 @@ class SuperheroListView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        hero = Path('static/images').iterdir()
-        hero = [f for f in hero]
-        return dict(hero=hero)
+        h = Path('static/images').iterdir()
+        h = [f for f in h]
+        return dict(heroes=h)
