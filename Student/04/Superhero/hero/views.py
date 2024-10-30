@@ -6,7 +6,7 @@ class SuperheroView(TemplateView):
 
     def get_context_data(self, **kwargs):
         name = kwargs['name']
-        image = f'/static/images/{name}'
+        image = f'/static/images/{name}.jpg'
         return {'hero': image}
     
     
