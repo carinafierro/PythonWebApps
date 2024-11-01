@@ -36,6 +36,9 @@ data = {
 class SuperheroView(TemplateView):
     template_name = 'index.html'
 
+    def get_context_dat(self, **kwargs):
+        return {'hero': data}
+    
     def get_context_data(self, **kwargs):
         name = kwargs['name']
         image = f'/static/images/{name}'
