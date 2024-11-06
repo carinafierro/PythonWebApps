@@ -1,8 +1,8 @@
 from django.urls import path
-from hero.views import HeroDetailView, HeroListView
+from django.contrib.admin import site
+from hero.views import SuperheroListView, SuperheroView
 
 urlpatterns = [
-    path('batman',        HeroDetailView.as_view()),
-    path('wonderwoman',        HeroDetailView.as_view()),
-    path('superman',        HeroDetailView.as_view()),
+    path('<str:name>', SuperheroView.as_view()),
+    path('', SuperheroListView.as_view()),
 ]
