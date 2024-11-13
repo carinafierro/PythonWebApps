@@ -1,1 +1,1 @@
-from django.db import models
+from hero.models import Superhero
