@@ -1,4 +1,4 @@
-{% extends 'theme.html' %}
+{% extends 'superhero_theme.html' %}
 
 
 
@@ -6,8 +6,8 @@
 
 {% for hero in heroes %}
 
-<a href="{{ hero }}">
-    <img src="{{ hero }}" alt="{{ hero }}" width="200">
+<a href="/hero/{{ hero }}">
+    <img src="/hero/{{ hero }}" alt="{{ hero }}" width="200">
 </a>
 {{ hero }}
 
