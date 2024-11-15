@@ -1,20 +1,6 @@
-{% extends 'superhero_theme.html' %}
-
-
-
-{% block content %}
-
-{% for hero in heroes %}
-
-<a href="/hero/{{ hero }}">
-    <img src="/hero/{{ hero }}" alt="{{ hero }}" width="200">
-</a>
-{{ hero }}
-
-<!--<a href="/hero/{{ hero }}">
-    <img class="hero" src="/{{ hero }}" alt="Chapter {{ hero }}" width="200">
-</a>-->
-
-{% endfor %}
-
-{% endblock content %}
+<h1>{{ title }}</h1>
+<p>{{ id }}</p>
+<img src="{{ images }}" alt="{{ images }}" width="300">
+<p>
+    <a href="." target="_new">Show all heroes</a>
+</p>
