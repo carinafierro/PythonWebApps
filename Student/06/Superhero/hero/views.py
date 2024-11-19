@@ -1,29 +1,22 @@
-from django.urls import reverse_lazy 
 from django.views.generic import TemplateView
-from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
-
+from django.views.generic import RedirectView
+from django.contrib.auth.forms import UserCreationForm
 from .models import Superhero
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class HeroListView(ListView):
-    template_name = 'hero/list.html'
-    model = Superhero
-    context_object_name = 'heroes'
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
 
-class HeroDetailView(DetailView):
-    template_name = 'hero/detail.html'
-    model = Superhero
-    context_object_name = 'hero'
+class UserHomeView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.is_anonymous:
+            return '/article/'
+        return f'/author/{get_me(self.request.user).pk}'
 
-class HeroCreateView(CreateView):
-    template_name = "hero/add.html"
-    model = Superhero
-    fields = '__all__'
+def get_me(user):
+    return Author.objects.get_or_create(user=user)[0]
 
-class HeroUpdateView(UpdateView):
-    template_name = "hero/edit.html"
-    model = Superhero
-    fields = '__all__'
-
-class HeroDeleteView(DeleteView):
-    model = Superhero
-    template_name = 'hero/delete.html'
+class SecretView(LoginRequiredMixin, TemplateView):
+    template_name = "page.html"
