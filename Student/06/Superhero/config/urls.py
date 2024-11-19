@@ -1,5 +1,5 @@
 from django.urls import include, path
-from django.views.generic import RedirectView, SignUpView
+from django.views.generic import SignUpView
 
 urlpatterns = [
     # Login/Logout code
