@@ -10,9 +10,22 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}\\Student\\03\\Superhero",
+            "cwd": "${workspaceFolder}/Student/06/Superhero",
             "args": [
-                "runserver"
+                "runserver",
+                "8001"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django Test",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/Student/06/Superhero",
+            "args": [
+                "test"
             ],
             "django": true,
             "justMyCode": true
