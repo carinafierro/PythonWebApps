@@ -2,6 +2,8 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import Superhero
 
@@ -31,3 +33,16 @@ class HeroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
     template_name = 'hero/delete.html'
     success_url = reverse_lazy('hero_list')
+
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "registration/edit.html"
+    model = User
+    fields = ['username', 'email', 'first_name', 'last_name', ]
+    success_url = reverse_lazy('home')
+
+
+class UserAddView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/add.html'
