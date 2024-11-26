@@ -1,4 +1,5 @@
 from requests import get
 
-print('page')
-print('Google',get('https://google.com'))
+resp = get('https://shrinkingworld.com')
+print('Google', resp)
+print(resp.text)
