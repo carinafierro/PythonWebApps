@@ -1,3 +1,8 @@
-from django.test import TestCase
+from django.test import SimpleTestCase
 
-# Create your tests here.
+
+
+class BlogAppTest(SimpleTestCase):
+
+    def test_django(self):
+        self.assertTrue(True)
