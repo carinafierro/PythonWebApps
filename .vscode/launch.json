@@ -10,7 +10,7 @@
             "type": "python",
             "request": "launch",
             "program": "manage.py",
-            "cwd": "${workspaceFolder}/Student/06/",
+            "cwd": "${workspaceFolder}/Student/08/",
             "args": [
                 "runserver",
                 "8001"
