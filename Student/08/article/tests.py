@@ -12,4 +12,11 @@ class ArticleDataTest(TestCase):
         self.assertEqual(len(Article.objects.all()), 0)
         Article.objects.create(title='title 1')
         Article.objects.create(title='title 2')
-        self.assertEqual(len(Article.objects.all()), 1)
+        self.assertEqual(len(Article.objects.all()), 2)
+
+        a = Article.objects.get(pk=2)
+        self.assertEqual(a.title, 'title 2')
+
+        a.title = "new title"
+        a.save()
+        self.assertEqual(a.title, 'new title')
