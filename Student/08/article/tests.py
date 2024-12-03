@@ -9,5 +9,7 @@ class ArticleAppTest(SimpleTestCase):
 class ArticleDataTest(TestCase):
     
     def test_article(self):
-        Article.objects.create(title='title')
+        self.assertEqual(len(Article.objects.all()), 0)
+        Article.objects.create(title='title 1')
+        Article.objects.create(title='title 2')
         self.assertEqual(len(Article.objects.all()), 1)
