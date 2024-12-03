@@ -5,7 +5,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         word = get('https://shrinking-world.com')
-        print('Google', word)
+        print('Shrinking-World', word)
         print(word.text)
 
         
