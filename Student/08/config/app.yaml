@@ -30,7 +30,7 @@ static_sites:
     branch: main
     deploy_on_push: true
     repo: carinafierro/PythonWebApps
-  name: webapps-demo-static
+  name: project 8
   routes:
-  - path: /static
+  - path: /
   source_dir: article/static
