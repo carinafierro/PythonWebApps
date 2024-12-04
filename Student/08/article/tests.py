@@ -1,4 +1,5 @@
 from django.test import SimpleTestCase, TestCase
+from django.urls import reverse
 from .models import Article
 
 class ArticleAppTest(SimpleTestCase):
@@ -20,3 +21,18 @@ class ArticleDataTest(TestCase):
         a.title = "new title"
         a.save()
         self.assertEqual(a.title, 'new title')
+
+        a.delete()
+        self.assertEqual(len(Article.objects.all()), 1)
+
+class ArticleViewsTest(TestCase):
+    def test_article_list_view(self):
+        self.assertEqual(reverse("article_list"),"/article/")
+    
+    def test_article_add_view(self):
+        a = dict(title='T 1', body='None')
+        b = dict(title='T 2', body='None')
+        response = self.client.post(reverse("article_add"), a)
+        response = self.client.post(reverse("article_add"), b)
+        self.assertEqual(len(Article.objects.all()), 2)
+        
