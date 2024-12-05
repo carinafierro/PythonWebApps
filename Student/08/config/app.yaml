@@ -32,4 +32,4 @@ static_sites:
   name: webapps-demo-static
   routes:
   - path: /static
-  source_dir: Student/08
+  source_dir: Student/08/static
