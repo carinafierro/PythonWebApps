@@ -24,3 +24,19 @@ class DocumentView(TemplateView):
         path = Path('Documents')/document
         markdown_text = markdown(path.read_text())
         return dict(text=markdown_text)
+
+from csv import reader
+
+class TableView(TemplateView):
+    template_name = 'table.html'
+
+    def get_context_data(self, **kwargs):
+        table = reader(open('Documents/lessons.csv'))
+        return dict(title='Lessons Schedule',
+                    table=table)
+    
+class PageView(TemplateView):
+
+    def get_template_names(self):
+        page = self.kwargs.get('page', 'index')
+        return f'{page}.html'
